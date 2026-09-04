@@ -1,0 +1,16 @@
+# Ignorar partes pesadas del entorno virtual
+Include/
+Lib/
+/pyvenv.cfg
+
+# Ignorar instaladores y ejecutables, pero dejar el código Django
+Scripts/*.exe
+Scripts/*.bat
+Scripts/*.ps1
+Scripts/activate
+Scripts/deactivate
+
+# Archivos de caché y base de datos local
+__pycache__/
+*.pyc
+db.sqlite3

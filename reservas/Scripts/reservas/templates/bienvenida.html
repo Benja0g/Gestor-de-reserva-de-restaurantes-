@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Reservas</title>
+    <style>
+        /* Centramos todo el contenido en la pantalla */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa; /* Un fondo gris muy suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .contenedor {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilo del globo de texto azul */
+        .globo-texto {
+            background-color: #007bff; /* Azul intenso */
+            color: white;
+            padding: 20px 40px;
+            border-radius: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* El piquito inferior que hace que parezca un globo de diálogo */
+        .globo-texto::after {
+            content: '';
+            position: absolute;
+            bottom: -15px; /* Lo bajamos un poco */
+            left: 50%;
+            margin-left: -15px; /* Para centrar el triángulo */
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: #007bff transparent transparent transparent;
+        }
+
+        .subtitulo {
+            color: #555;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <div class="globo-texto">
+            ¡Bienvenido al Gestor de Reservas! 🍽️
+        </div>
+        <p class="subtitulo">Administra las mesas y turnos de tu restaurante de forma rápida y sencilla.</p>
+    </div>
+
+</body>
+</html>
