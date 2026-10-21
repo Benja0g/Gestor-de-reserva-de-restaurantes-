@@ -1,58 +1,143 @@
 # Gestor de Reservas de Restaurantes
 
-Proyecto backend desarrollado con Python y Django para gestionar reservas de mesas en un restaurante.
+Proyecto backend desarrollado con Python, Django y Django REST Framework para gestionar restaurantes, sucursales, clientes, mesas, reservas y pagos.
 
 ## Requisitos
 
 - Python 3.10 o superior
 - Django
+- Django REST Framework
+- MySQL
+- WampServer
+- python-decouple
 
-## Instalacion
+## Instalación
 
 Desde la carpeta principal del proyecto, crea y activa el ambiente virtual:
 
-```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-```
 
-Instala Django:
+Instala las dependencias:
 
-```powershell
-pip install django
-```
+pip install -r requirements.txt
 
-## Ejecucion
+## Configuración
 
-Entra a la carpeta que contiene `manage.py` y ejecuta el servidor:
+Crear un archivo llamado:
 
-```powershell
-cd reservas\Scripts
+.env
+
+Con el siguiente contenido:
+
+SECRET_KEY=tu_clave_secreta
+
+DB_NAME=gestor_reservas_db
+DB_USER=root
+DB_PASSWORD=
+DB_HOST=localhost
+DB_PORT=3306
+
+## Base de Datos
+
+Crear la base de datos ejecutando el archivo:
+
+crear_bd.sql
+
+O ejecutando:
+
+CREATE DATABASE gestor_reservas_db
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
+
+## Migraciones
+
+Ejecutar:
+
+python manage.py makemigrations
+python manage.py migrate
+
+## Crear Superusuario
+
+python manage.py createsuperuser
+
+## Ejecución
+
+Desde la carpeta principal del proyecto ejecutar:
+
 python manage.py runserver
-```
 
-Luego abre en el navegador:
+Luego abrir en el navegador:
 
-```text
 http://127.0.0.1:8000/
-```
 
-## Rutas principales
+## Panel de Administración
 
-- `/`: pagina de bienvenida del proyecto.
-- `/admin/`: panel de administracion de Django.
-- Cualquier URL inexistente muestra la pagina personalizada de error 404.
+http://127.0.0.1:8000/admin/
 
-## Estructura principal
+## API REST
 
-```text
+http://127.0.0.1:8000/api/
+
+## Endpoints Disponibles
+
+/api/restaurantes/
+/api/sucursales/
+/api/clientes/
+/api/mesas/
+/api/estados-reserva/
+/api/reservas/
+/api/metodos-pago/
+/api/pagos/
+
+## Operaciones CRUD
+
+La API permite realizar las siguientes operaciones:
+
+- GET
+- POST
+- PUT
+- PATCH
+- DELETE
+
+## Modelos del Sistema
+
+- Restaurante
+- Sucursal
+- Cliente
+- Mesa
+- EstadoReserva
+- Reserva
+- MetodoPago
+- Pago
+
+## Estructura Principal
+
 reservas/
-└── Scripts/
-	├── manage.py
-	├── motor_django/    # Configuracion principal del proyecto
-	└── reservas/        # Aplicacion Django
-```
+├── .env
+├── manage.py
+├── requirements.txt
+├── crear_bd.sql
+├── motor_django/
+└── restaurante/
 
-## Estado del proyecto
+## Estado del Proyecto
 
-Actualmente incluye la configuracion inicial de Django, una aplicacion llamada `reservas`, la pagina de bienvenida y el manejo personalizado del error 404. Las funcionalidades de reservas y el modelo de datos se incorporaran en las siguientes etapas.
+Actualmente el sistema cuenta con:
+
+- Base de datos MySQL.
+- API REST con Django REST Framework.
+- Gestión de restaurantes.
+- Gestión de sucursales.
+- Gestión de clientes.
+- Gestión de mesas.
+- Gestión de reservas.
+- Gestión de pagos.
+- Panel de administración de Django.
+- Operaciones CRUD completas mediante API REST.
+
+## Autor
+
+Benjamin Andrés Baraona González
+
+Proyecto desarrollado para la evaluación de Backend utilizando Django, Django REST Framework y MySQL.
