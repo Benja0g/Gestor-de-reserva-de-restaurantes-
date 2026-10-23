@@ -14,3 +14,6 @@ Scripts/deactivate
 __pycache__/
 *.pyc
 db.sqlite3
+
+# Entorno virtual
+Scripts/
